@@ -1,0 +1,14 @@
+DESCRIPCIÓN DEL SOFTWARE 
+
+El presente software es una aplicación de consola desarrollada en el lenguaje de programación C++, cuyo propósito principal es servir como una prueba introductoria o de verificación del entorno de desarrollo y compilación. El programa no requiere interacción ni entrada de datos por parte del usuario; al ejecutarse, carga la biblioteca estándar de entrada y salida, procesa la función principal e imprime directamente en la terminal el mensaje literal "hola mundo" seguido de un salto de línea. Finalmente, concluye su ciclo de vida retornando un código de estado de finalización exitosa al sistema operativo. 
+
+ENTORNO DE TRABAJO 
+
+DESARROLLO
+Ivan, Dylan y Maicol
+
+PRUEBAS
+Sebastian, Critian, Wendy y Juan Diego
+
+PRODUCCION
+Tatiana, Yeimy y Sebastian 
