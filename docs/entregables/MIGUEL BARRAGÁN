@@ -1,0 +1,6 @@
+Descripción del software: El sistema solicita el nombre de usuario y se muestra un el nombre del usuario junto a una bienvenida "Bienvenido (Esteban) o Bienvenido (76855), sin fallar."
+Los entornos que trabajamos son:
+Desarrollo: Dylan, Iván y Maicol - Se comienza a realizar el desarrollo del código fuente en base a los requerimientos y reglas de negocio.
+Pruebas: Sebastián, Cristian, Wendy y Juan Diego - Encargados de la supervisión del software, sometiendo al sistema a revisiones internas y externas para corregir Bugs del software en cuestión.
+Producción: Tatiana, Yeimy y Sebastian - Es la fase del ciclo de vida del software donde esta desplegado y disponible para los usuarios finales.
+Scrum Master: Esteban y Miguel Angel - Es el rol encargado del equipo garantizando la comprensión y realizando el marco de trabajo SCRUM para agilidad del equipo.
