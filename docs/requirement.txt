@@ -1,1 +1,145 @@
 
+==============================================================
+ ESPECIFICACIÓN DE REQUERIMIENTOS – SISTEMA DE BIENVENIDA
+ Versión: 1.0    Fecha: 2026-10-09
+==============================================================
+
+El sistema solicita el nombre del usuario por consola y responde
+con un mensaje de bienvenida, aceptando cualquier entrada válida
+sin fallar.
+
+
+--------------------------------------------------------------
+ REQUERIMIENTOS FUNCIONALES
+--------------------------------------------------------------
+
+RF-001 – Registro y saludo de usuario
+  Tipo:             Funcional
+  Actor:            Usuario
+  Descripción:      Al iniciar la ejecución, el sistema solicita por
+                    consola el nombre del usuario y muestra un
+                    mensaje de bienvenida personalizado.
+  Datos de entrada: nombre (cadena de texto)
+  Datos de salida:  Bienvenido {nombre}
+  Precondición:     La aplicación se inició correctamente.
+  Postcondición:    El mensaje de bienvenida queda visible en consola.
+
+  Criterios de aceptación:
+    1. El sistema muestra la instrucción "Ingrese su nombre:" antes
+       de leer el dato.
+    2. Al ingresar "Esteban", la salida es "Bienvenido Esteban".
+
+
+RF-002 – Aceptación de entradas numéricas
+  Tipo:             Funcional
+  Actor:            Usuario
+  Descripción:      El sistema acepta como nombre valores alfabéticos,
+                    numéricos o combinados, sin generar errores ni
+                    interrumpir la ejecución.
+  Datos de entrada: nombre (alfanumérico)
+  Datos de salida:  Bienvenido {nombre}
+
+  Criterios de aceptación:
+    1. Al ingresar "32", la salida es "Bienvenido 32".
+    2. Al ingresar "Esteban", la salida es "Bienvenido Esteban".
+    3. Ninguna de las entradas anteriores provoca una excepción ni
+       detiene el programa.
+
+
+RF-003 – Validación de entrada vacía
+  Tipo:             Funcional
+  Actor:            Usuario
+  Descripción:      Si el usuario no escribe ningún valor, el sistema
+                    informa el error y vuelve a solicitar el nombre.
+  Datos de entrada: nombre vacío o compuesto solo por espacios
+  Datos de salida:  "El nombre no puede estar vacío" y nueva
+                    solicitud del dato
+
+  Criterios de aceptación:
+    1. Al presionar Enter sin escribir nada, se muestra
+       "El nombre no puede estar vacío".
+    2. Al ingresar solo espacios, se muestra el mismo mensaje.
+    3. Tras el mensaje, el sistema vuelve a mostrar
+       "Ingrese su nombre:" sin cerrarse.
+    4. Al ingresar después un valor válido, se muestra
+       "Bienvenido {nombre}".
+
+
+RF-004 – Limpieza de espacios
+  Tipo:             Funcional
+  Actor:            Usuario
+  Descripción:      El sistema elimina los espacios al inicio y al
+                    final del nombre antes de mostrar el saludo.
+  Datos de entrada: nombre con espacios sobrantes
+  Datos de salida:  Bienvenido {nombre sin espacios sobrantes}
+
+  Criterios de aceptación:
+    1. Al ingresar "  Esteban  ", la salida es "Bienvenido Esteban".
+    2. Los espacios internos se conservan: "Juan Pablo" produce
+       "Bienvenido Juan Pablo".
+
+
+--------------------------------------------------------------
+ REQUERIMIENTOS NO FUNCIONALES
+--------------------------------------------------------------
+
+RNF-001 – Robustez y salida del sistema
+  Tipo:             No funcional (robustez / confiabilidad)
+  Descripción:      El sistema trata la entrada del usuario como
+                    texto, sin importar su contenido, y muestra el
+                    saludo en consola como resultado final de la
+                    ejecución.
+  Datos de entrada: nombre (letras o números)
+  Datos de salida:  Bienvenido {nombre}
+
+  Criterios de aceptación:
+    1. La lectura de la entrada no realiza conversiones de tipo que
+       puedan fallar (por ejemplo, de texto a entero).
+    2. El programa finaliza de forma normal (código de salida 0)
+       mostrando el saludo.
+
+
+RNF-002 – Rendimiento
+  Tipo:             No funcional (rendimiento)
+  Descripción:      El sistema muestra el mensaje de bienvenida en
+                    menos de 1 segundo después de que el usuario
+                    ingresa el nombre.
+  Métrica:          Tiempo de respuesta < 1 s
+
+  Criterios de aceptación:
+    1. Medido desde que el usuario presiona Enter, el saludo aparece
+       en menos de 1 segundo.
+    2. El tiempo se cumple en al menos 10 ejecuciones consecutivas
+       de prueba.
+
+
+RNF-003 – Usabilidad
+  Tipo:             No funcional (usabilidad)
+  Descripción:      Todas las instrucciones y mensajes de consola
+                    están en español y son claros para el usuario
+                    final.
+  Alcance:          Instrucción de entrada, mensaje de bienvenida y
+                    mensajes de error
+
+  Criterios de aceptación:
+    1. Los mensajes "Ingrese su nombre:", "Bienvenido {nombre}" y
+       "El nombre no puede estar vacío" se muestran en español.
+    2. Ningún mensaje muestra al usuario trazas de error técnicas
+       (stack traces).
+    3. Un usuario sin conocimientos técnicos entiende qué debe
+       ingresar sin ayuda adicional.
+
+
+--------------------------------------------------------------
+ MATRIZ DE TRAZABILIDAD
+--------------------------------------------------------------
+
+  ID        Tipo           Nombre                              Criterios
+  -------   ------------   ---------------------------------   ---------
+  RF-001    Funcional      Registro y saludo de usuario            2
+  RF-002    Funcional      Aceptación de entradas numéricas        3
+  RF-003    Funcional      Validación de entrada vacía             4
+  RF-004    Funcional      Limpieza de espacios                    2
+  RNF-001   No funcional   Robustez y salida del sistema           2
+  RNF-002   No funcional   Rendimiento                             2
+  RNF-003   No funcional   Usabilidad                              3
